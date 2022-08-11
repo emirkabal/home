@@ -41,7 +41,7 @@ let devices = [];
   if (process.env.AUTH) {
     app.use((req, res, next) => {
       if (req.headers.authorization !== process.env.AUTH) {
-        res.status(401).send("Unauthorized");
+        return res.status(401).send("Unauthorized");
       }
       next();
     });
